@@ -1,6 +1,3 @@
-'use strict';
-
-// yarn sequelize migration:create --name=create-users
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('users', {
@@ -26,7 +23,7 @@ module.exports = {
       provider: {
         type: Sequelize.BOOLEAN,
         defaultValue: false,
-        allowNull: false
+        allowNull: false,
       },
       created_at: {
         type: Sequelize.DATE,
@@ -39,7 +36,7 @@ module.exports = {
     });
   },
 
-  down: (queryInterface) => {
+  down: queryInterface => {
     return queryInterface.dropTable('users');
-  }
+  },
 };
