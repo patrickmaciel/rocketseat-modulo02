@@ -144,6 +144,9 @@ class AppointmentController {
     appointment.cancelled_at = new Date();
     await appointment.save();
 
+    // WOW
+    // retirando o await o processamento continua, mesmo enviando a resposta
+    // Mail.sendMail({
     await Queue.add(CancellationMail.key, {
       appointment,
     });

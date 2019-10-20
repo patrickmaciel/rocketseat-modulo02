@@ -9,9 +9,7 @@ class CancellationMail {
 
   async handle({ data }) {
     const { appointment } = data;
-    // WOW
-    // retirando o await o processamento continua, mesmo enviando a resposta
-    // Mail.sendMail({
+
     await Mail.sendMail({
       to: `${appointment.provider.name} <${appointment.provider.email}>`,
       subject: 'Agendamento cancelado',
